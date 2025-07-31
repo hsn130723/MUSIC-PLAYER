@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Playis Music Arabic 🎧</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎶 Playis Music</h1>
+      <p>Putar musik Arab favoritmu langsung di browser</p>
+    </header>
+
+    <main>
+      <label for="musicInput">🎧 Pilih Lagu</label>
+      <input type="file" id="musicInput" accept="audio/*" />
+      <audio id="audioPlayer" controls></audio>
+    </main>
+
+    <footer>&copy; 2025 Playis Music. Dibuat dengan ❤️ oleh hsnfyrmnsyh.</footer>
+  </div>
+
+  <script>
+    const input = document.getElementById('musicInput');
+    const audio = document.getElementById('audioPlayer');
+
+    input.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        const url = URL.createObjectURL(file);
+        audio.src = url;
+        audio.play();
+      }
+    });
+  </script>
+</body>
+</html>
